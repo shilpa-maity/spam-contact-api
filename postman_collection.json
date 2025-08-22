@@ -1,0 +1,204 @@
+{
+  "info": {
+    "name": "Spam Contact API",
+    "_postman_id": "c1d7f8e0-0000-4b5e-9999-abcdef123456",
+    "description": "Postman collection for Spam Contact API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Test User\", \"phone\": \"9990000001\", \"password\": \"password123\", \"email\": \"test@mail.com\"}"
+        },
+        "url": {
+          "raw": "{{base}}/api/auth/register",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"phone\": \"9990000001\", \"password\": \"password123\"}"
+        },
+        "url": {
+          "raw": "{{base}}/api/auth/login",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Profile",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base}}/api/user/profile",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "api",
+            "user",
+            "profile"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Profile",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Updated Name\"}"
+        },
+        "url": {
+          "raw": "{{base}}/api/user/profile",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "api",
+            "user",
+            "profile"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search by Name",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base}}/api/search/name?query=an",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "api",
+            "search",
+            "name"
+          ],
+          "query": [
+            {
+              "key": "query",
+              "value": "an"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search by Phone",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base}}/api/search/phone/9990000001",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "api",
+            "search",
+            "phone",
+            "9990000001"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Mark Spam",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base}}/api/spam/9990000001",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "api",
+            "spam",
+            "9990000001"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base",
+      "value": "http://localhost:4000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
